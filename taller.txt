@@ -1,0 +1,6 @@
+1.-dada una matriz de n filas por p columnas; ingresar los valores.
+determinar en que ubicacion (fila x columna) se encuentra el numero mayor y menor
+2.-realizar las 12 tablas de multiplicar, almacenarlas en una matriz 
+(cada columna representa una tabla diferente 1,2,...12)
+
+implemente los programas con POO (clases, atributos, metodos)
