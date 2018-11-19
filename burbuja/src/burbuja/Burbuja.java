@@ -19,6 +19,8 @@ public class Burbuja {
         teclado= new java.util.Scanner(System.in);
         sub llama= new sub();
         int ingreso,op;
+        String ="S";
+        do{
         System.out.println("Ingrese el tamano del arreglo:");
         ingreso=teclado.nextInt();       
         llama.metodo_llenar(ingreso);
@@ -36,6 +38,10 @@ public class Burbuja {
              case 3:llama.metodo_dowhile();
             break;
         }
+         System.out.println("SI DESEA CONTINUAR PRESIONE S/s");
+        opc=teclado.next();
+        }
+        while(opc.equals("s") || opc.equals("S"));
     }
    
 }
