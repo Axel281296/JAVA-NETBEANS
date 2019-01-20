@@ -327,6 +327,11 @@ public class frmAlumno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        for(alumno reg: data.getDatos()){
        System.out.println(reg.getId());
+       System.out.println(reg.getNombre());
+       System.out.print(reg.getApellido());
+       System.out.print(reg.getCedula());
+       System.out.print(reg.getEdad());
+       System.out.println("FIN");
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
