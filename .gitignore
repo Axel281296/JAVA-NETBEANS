@@ -21,3 +21,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/GUI/CELL_CENTER_FINAL/CELL_CENTER_FINAL/build/
+/GUI/CELL_CENTER_FINAL/CELL_CENTER_FINAL/dist/
+/GUI/CELL_CENTER_FINAL/dist/
