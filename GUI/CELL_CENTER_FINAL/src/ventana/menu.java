@@ -5,6 +5,14 @@
  */
 package ventana;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author alexa
@@ -97,6 +105,11 @@ public class menu extends javax.swing.JFrame {
         getContentPane().add(jButtonC, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ticket-icon---3d-blue-button-png_109658.jpg"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 230, 150));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/700_FO50288433_5d804b2d0dc5a76b4c827ac32124267c.jpg"))); // NOI18N
@@ -135,6 +148,65 @@ public class menu extends javax.swing.JFrame {
         this.setVisible (false );
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonP3ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        try {
+             Document doc = new Document();
+             PdfWriter pdf =PdfWriter.getInstance(doc,new FileOutputStream("PROTQUIM.pdf"));
+            
+             doc.open();
+          
+             PdfContentByte cb=pdf.getDirectContent();
+            
+             BaseFont bf= BaseFont.createFont(BaseFont.COURIER_BOLD,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
+          
+             cb.setFontAndSize(bf,45);
+             cb.beginText();
+             
+             cb.setTextMatrix(100,805);
+             cb.showText("TURNO");
+             cb.setTextMatrix(210,770);
+             cb.showText("CELL_CENTER"); 
+             /*
+              cb.setFontAndSize(bf,19);
+             cb.setTextMatrix(50,665); 
+             cb.showText("FECHA ELABORACION:");
+             cb.setTextMatrix(50,635); 
+             cb.showText("FECHA DE ENTREGA:");
+             cb.setTextMatrix(50,605); 
+             cb.showText("SOLICITADO POR:");
+             cb.setTextMatrix(50,575); 
+             cb.showText("CLIENTE:");
+             cb.setTextMatrix(50,545); 
+             cb.showText("CANTIDAD A FABRICAR:");
+             cb.setTextMatrix(50,515); 
+             cb.showText("NOMBRE DEL PRODUCTO:");
+             cb.setTextMatrix(50,485); 
+             cb.showText("PRESENTACION:");
+             
+             cb.setTextMatrix(50,425); 
+             cb.showText("FACTURAR: SI NO");
+             
+             cb.setTextMatrix(60,200); 
+             cb.showText("________________________________________");
+              cb.setTextMatrix(155,175); 
+             cb.showText("ING. JHON CHOEZ ALARCON");
+             cb.setTextMatrix(175,145);
+             cb.showText("JEFE DE PRODUCCION");
+            */
+             cb.endText();
+             doc.close();
+             
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+         
+         try {
+            Desktop.getDesktop().open(new File("PROTQUIM.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Error:"+ex);
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
