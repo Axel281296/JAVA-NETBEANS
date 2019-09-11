@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package ventana;
-
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -109,8 +113,11 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 230, 150));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 230, 150));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/700_FO50288433_5d804b2d0dc5a76b4c827ac32124267c.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 460));
@@ -150,9 +157,14 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonP3ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+      System.out.println("hola");
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        System.out.println("hola");
         try {
              Document doc = new Document();
-             PdfWriter pdf =PdfWriter.getInstance(doc,new FileOutputStream("PROTQUIM.pdf"));
+             PdfWriter pdf =PdfWriter.getInstance(doc,new FileOutputStream("ticket.pdf"));
             
              doc.open();
           
@@ -164,49 +176,25 @@ public class menu extends javax.swing.JFrame {
              cb.beginText();
              
              cb.setTextMatrix(100,805);
-             cb.showText("TURNO");
+             cb.showText("TICKET");
              cb.setTextMatrix(210,770);
-             cb.showText("CELL_CENTER"); 
-             /*
-              cb.setFontAndSize(bf,19);
-             cb.setTextMatrix(50,665); 
-             cb.showText("FECHA ELABORACION:");
-             cb.setTextMatrix(50,635); 
-             cb.showText("FECHA DE ENTREGA:");
-             cb.setTextMatrix(50,605); 
-             cb.showText("SOLICITADO POR:");
-             cb.setTextMatrix(50,575); 
-             cb.showText("CLIENTE:");
-             cb.setTextMatrix(50,545); 
-             cb.showText("CANTIDAD A FABRICAR:");
-             cb.setTextMatrix(50,515); 
-             cb.showText("NOMBRE DEL PRODUCTO:");
-             cb.setTextMatrix(50,485); 
-             cb.showText("PRESENTACION:");
+             cb.showText("CALL CENTER"); 
              
-             cb.setTextMatrix(50,425); 
-             cb.showText("FACTURAR: SI NO");
-             
-             cb.setTextMatrix(60,200); 
-             cb.showText("________________________________________");
-              cb.setTextMatrix(155,175); 
-             cb.showText("ING. JHON CHOEZ ALARCON");
-             cb.setTextMatrix(175,145);
-             cb.showText("JEFE DE PRODUCCION");
-            */
              cb.endText();
              doc.close();
              
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            Logger.getLogger(venta.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException | IOException ex) {
+            Logger.getLogger(venta.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
          try {
-            Desktop.getDesktop().open(new File("PROTQUIM.pdf"));
+            Desktop.getDesktop().open(new File("ticket.pdf"));
         } catch (IOException ex) {
             System.out.println("Error:"+ex);
         }
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jLabel2MousePressed
 
     /**
      * @param args the command line arguments
